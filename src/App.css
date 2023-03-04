@@ -1,3 +1,142 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+
 .App {
   text-align: center;
 }
@@ -32,7 +171,195 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.card-container {
+  border: 1px solid black;
+  width: 350px;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 56px;
+  border-radius: 25px;
+  box-sizing: border-box;
+  box-shadow: -8px 9px 16px -3px gray;
+  background: #1d0e0e;
+}
+
+.card-background {
+  z-index: 0;
+  position: relative;
+  height: 450px;
+  margin: 20px 20px 0 20px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 8%;
+  border-bottom-right-radius: 8%;
+  background-color: #bbb;
+}
+
+.card-frame {
+  z-index: 1;
+  position: relative;
+  height: 108%;
+  max-width: 97%;
+  top: 0.5%;
+  left: 1.2%;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+ — — — — — — — — — — — — -
+ — — — — — — — — — — — — -
+ BORDERS
+ — — — — — — — — — — — — -
+ — — — — — — — — — — — — -
+*/
+.frame-header,
+.frame-type-line {
+  border-bottom: 4px solid #a9a9a9;
+  border-left: 2px solid #a9a9a9;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.frame-header,
+.spell-properties,
+.frame-type-line {
+  box-shadow:
+    0 0 0 2px #171314,
+    0 0 0 5px #4d0f0f,
+    -3px 3px 2px 5px #171314;
+  margin-bottom: 7px;
+    margin-top: 7px;
+}
+
+.description {
+  box-shadow:
+    0 0 0 5px #4d0f0f,
+    -3px 3px 2px 5px #171314;
+}
+
+/*
+ — — — — — — — — — — — 
+ — — — — — — — — — — — 
+ OVERFLOW
+ — — — — — — — — — — — 
+ — — — — — — — — — — — 
+*/
+.frame-header,
+.frame-type-line,
+.description,
+.spell-properties {
+  overflow: hidden;
+}
+
+.frame-header,
+.frame-type-line {
+  background:
+    linear-gradient(0deg, rgba(201, 216, 201, .3), rgba(201, 216, 209, .3)),
+    url(https://image.ibb.co/jKByZn/tile_bg_1.jpg);
+  display: flex;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 18px/40px;
+}
+
+.name,
+.type,
+.spell-properties th {
+  font-size: 1em;
+  margin-left: 10px;
+  font-weight: 600;
+
+}
+
+.SpellPropertiesTop,
+.SpellPropertiesBottom {
+  width: 100%;
+        border: solid 1px maroon;
+}
+
+.SpellPropertiesTop td,
+.SpellPropertiesBottom td {
+  width: 50%;
+  text-align: center;
+  border-left: solid 1px maroon;
+  border-right: solid 1px maroon;
+
+}
+.SpellPropertiesBottom th,
+.SpellPropertiesTop th {
+      border-left: solid 1px maroon;
+        border-right: solid 1px maroon;
+}
+
+.description {
+  text-align: justify;
+  font-size: .8em;
+  margin: 0 0 0 0;
+  height: 265px;
+  background: #d3ded6;
+  background-image: url(https://image.ibb.co/dFcNx7/tile_bg_2.jpg);
+  display: flex;
+  flex-direction: column ;
+  justify-content:flex-start;
+  padding: 5px 6px;
+  box-sizing: border-box;
+}
+
+.card-background {
+  background-image: url(./background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.spell-properties {
+  background-image: url(https://image.ibb.co/dFcNx7/tile_bg_2.jpg);
+      height: 15%;
+      /* make it fit in the card */
+      margin: 0 10px;
+      /* align it vertically */
+}
+.frame-type-line {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+.frame-header,
+.frame-type-line {
+  text-align: left;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 15px;
+}
+.frame-header {
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.cardRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1050px;
+}
+
+.ritual, .concentration {
+  display: inline;
+  color: white;
+  background: red;
 }
