@@ -67,19 +67,14 @@ function App() {
       return results;
 
     }
-    const load = async (result) => {
-      await result.map((spell) => (
-        indData(spell)
-      ))
-    }
     data().then(result => {
-      load(result).then(setLoading(false));
-      setX(repo.getSpells());
-      console.log(repo);
+      setX(result);
+      console.log(x);
+      setLoading(false);
 
 
       })
-  }, 4000);
+  }, 1000);
     }, []);
 
 
@@ -101,7 +96,7 @@ function App() {
 
         {
           x.map((spell) => (
-            <SpellCard key={spell.name} name={spell.name}/>
+            <SpellCard key={spell.name} name={spell.name} url={spell.url}/>
           ))
         }
       </div>

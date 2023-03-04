@@ -1,141 +1,54 @@
 // Importing combination
-import React from 'react';
+	import React from 'react';
+import { useEffect, useState } from 'react';
+import Hugs from '../Images/hug.gif'
+import DoneSpellCard from './DoneSpellCard.jsx'
+
+const SpellCard = ({ name, url }) => {
+	const [spellData, setspellData] = useState([])
+	const [isLoading, setLoading] = useState(true)
+	
+	const API_URL2 = "https://www.dnd5eapi.co"
+	useEffect(() => {
+		setTimeout(() => {
+		load(url).then((result) => 
+			setspellData(result)
+		).then(setLoading(false))
+		}, 500);
+	}, []);
+	if(isLoading){
+		return(
+			<div className="card-container">
+				<div className="card-background">
+					<div className="card-frame">
+						<div className="frame-type-line">
+							<h1 className="name">{name}</h1>
+						</div>
+							<img src={Hugs} alt="loading"></img>
+					</div></div></div>
 
 
-const SpellCard =  ({ name, casting_time, ritual, range, comps, duration, concentration, desc, higherLevel }) => {
+		)
+	}
+	{ console.log(spellData) }
   return(
 
-		<div className="card-container">
-        <div className="card-background">
-        <div className="card-frame">
-				<div className="frame-type-line">
-					<h1 className="name">{name}</h1>
-				</div>
-				<div className="spell-properties">
-					<table className="SpellPropertiesTop">
-						<thead>
-							<tr>
-								<th>Casting Time</th>
-								<th>Range</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>{casting_time} <span>{ritual ? <p className="ritual">R</p> : ""}</span></td>
-								<td>{range}</td>
-							</tr>
-						</tbody>
-					</table>
-					<table className="SpellPropertiesBottom">
-						<thead>
-							<tr>
-								<th>Components</th>
-								<th>Duration</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>{comps}</td>
-								<td>{duration} <span>{concentration ? <p className="concentration">C</p> : ""} </span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div className="description">
-					<p> {desc}</p><br />
-					<p> {higherLevel}</p>
-				</div>
-				<div className="frame-header">
-				<h1 className="type">LEVEL</h1>
-				</div>
-        </div></div></div>
+		<DoneSpellCard props={spellData} />
 	);
 
 }
 
 export default SpellCard;
 
-/*
-{
-	"index": "fireball",
-	"name": "Fireball",
-	"desc": [
-		"A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one.",
-		"The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried."
-	],
-	"higher_level": [
-		"When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd."
-	],
-	"range": "150 feet",
-	"components": [
-		"V",
-		"S",
-		"M"
-	],
-	"material": "A tiny ball of bat guano and sulfur.",
-	"ritual": false,
-	"duration": "Instantaneous",
-	"concentration": false,
-	"casting_time": "1 action",
-	"level": 3,
-	"damage": {
-		"damage_type": {
-			"index": "fire",
-			"name": "Fire",
-			"url": "/api/damage-types/fire"
-		},
-		"damage_at_slot_level": {
-			"3": "8d6",
-			"4": "9d6",
-			"5": "10d6",
-			"6": "11d6",
-			"7": "12d6",
-			"8": "13d6",
-			"9": "14d6"
-		}
-	},
-	"dc": {
-		"dc_type": {
-			"index": "dex",
-			"name": "DEX",
-			"url": "/api/ability-scores/dex"
-		},
-		"dc_success": "half"
-	},
-	"area_of_effect": {
-		"type": "sphere",
-		"size": 20
-	},
-	"school": {
-		"index": "evocation",
-		"name": "Evocation",
-		"url": "/api/magic-schools/evocation"
-	},
-	"classes": [
-		{
-			"index": "sorcerer",
-			"name": "Sorcerer",
-			"url": "/api/classes/sorcerer"
-		},
-		{
-			"index": "wizard",
-			"name": "Wizard",
-			"url": "/api/classes/wizard"
-		}
-	],
-	"subclasses": [
-		{
-			"index": "lore",
-			"name": "Lore",
-			"url": "/api/subclasses/lore"
-		},
-		{
-			"index": "fiend",
-			"name": "Fiend",
-			"url": "/api/subclasses/fiend"
-		}
-	],
-	"url": "/api/spells/fireball"
+const load = async(url) => {
+const API_URL2 = "https://www.dnd5eapi.co"
+const data = await fetch(API_URL2 + url);
+const result = await data.json();
+return result;
+
+
 }
 
-*/
+
+
+
