@@ -44,6 +44,16 @@ function App() {
   const API_URL = "https://api.open5e.com/spells/"
 
 
+  const byLevel = async (param) => {
+    const response = await fetch(`${API_URL + "?level_int="+param}`)
+    const data = await response.json();
+    const results = await data['results'];
+    setX(results);
+    return true;
+  }
+
+
+
   useEffect(() => {
   setTimeout(() => {
   
@@ -79,25 +89,81 @@ function App() {
   return (
       <div className="container">
       <ErrorBoundary>
-        <div>Level<br />
-          1
-          <input type="radio" id='1' name="level" value="1" />
-          2
-          <input type="radio" id='2' name="level" value="2" />
-          3
-          <input type="radio" id='3' name="level" value="3" />
-          4
-          <input type="radio" id='4' name="level" value="4" />
-          5
-          <input type="radio" id='5' name="level" value="5" />
-          6
-          <input type="radio" id='6' name="level" value="6" />
-          7
-          <input type="radio" id='7' name="level" value="7" />
-          8
-          <input type="radio" id='8' name="level" value="8" />
-          9
-          <input type="radio" id='9' name="level" value="9" />
+        <div className="dashboard-header">
+        <div className="dashboard">Level<br />
+          <table>
+            <tr>
+              <td>
+                <label htmlFor="any">Any</label>
+              </td>
+                <td>
+                  <label htmlFor='0'>0</label>
+                </td>
+              <td>
+                <label htmlFor='1'>1</label>
+              </td>
+              <td>
+                <label htmlFor='2'>2</label>
+              </td>
+              <td>
+                <label htmlFor='3'>3</label>
+              </td>
+              <td>
+                <label htmlFor='4'>4</label>
+              </td>
+              <td>
+                <label htmlFor='5'>5</label>
+              </td>
+              <td>
+                <label htmlFor='6'>6</label>
+              </td>
+              <td>
+                <label htmlFor='7'>7</label>
+              </td>
+              <td>
+                <label htmlFor='8'>8</label>
+              </td>
+              <td>
+                <label htmlFor='9'>9</label><br />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <input type="radio" id='any' name="level" value="Any" onClick={() => byLevel(1-9)} />
+              </td>
+                <td>
+                  <input type="radio" id='0' name="level" value="0" onClick={() => byLevel(0)} />
+                </td>
+              <td>
+                  <input type="radio" id='1' name="level" value="1" onClick={() => byLevel(1)} />
+              </td>
+              <td>
+                  <input type="radio" id='2' name="level" value="2" onClick={() => byLevel(2)} />
+              </td>
+              <td>
+                  <input type="radio" id='3' name="level" value="3" onClick={() => byLevel(3)} />
+              </td>
+              <td>
+                  <input type="radio" id='4' name="level" value="4" onClick={() => byLevel(4)} />
+              </td>
+              <td>
+                  <input type="radio" id='5' name="level" value="5" onClick={() => byLevel(5)} />
+              </td>
+              <td>
+                  <input type="radio" id='6' name="level" value="6" onClick={() => byLevel(6)} />
+              </td>
+              <td>
+                  <input type="radio" id='7' name="level" value="7" onClick={() => byLevel(7)} />
+              </td>
+              <td>
+                  <input type="radio" id='8' name="level" value="8" onClick={() => byLevel(8)} />
+              </td>
+              <td>
+                  <input type="radio" id='9' name="level" value="9" onClick={() => byLevel(9)} />
+              </td>
+            </tr>
+          </table>
+        </div>
         </div>
 
         {

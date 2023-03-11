@@ -253,8 +253,8 @@ table {
 */
 .frame-header,
 .frame-type-line,
-.description,
-.spell-properties {
+.description 
+{
   overflow: hidden;
 }
 
@@ -285,7 +285,8 @@ table {
 .SpellPropertiesTop,
 .SpellPropertiesBottom {
   width: 100%;
-        border: solid 1px maroon;
+  border: solid 1px maroon;
+  height: fit-content;
 }
 
 .SpellPropertiesTop td,
@@ -295,6 +296,8 @@ table {
   border-left: solid 1px maroon;
   border-right: solid 1px maroon;
     font-size: .8em;
+  overflow:visible;
+  margin: 2px;
 
 }
 .SpellPropertiesBottom th,
@@ -326,9 +329,9 @@ table {
 
 .spell-properties {
   background-image: url(https://image.ibb.co/dFcNx7/tile_bg_2.jpg);
-      height: 20%;
+      min-height: max-content;
       /* make it fit in the card */
-      margin: 0 10px;
+      margin: 10 10px;
       /* align it vertically */
 }
 .frame-type-line {
@@ -375,4 +378,19 @@ p {
   flex-direction: row;
   justify-content: flex-end;
   flex-wrap: wrap;
+}
+.dashboard-header {
+  width: 100%;
+  background-color: white;
+  align-content: center;
+}
+.dashboard {
+  margin:auto;
+  background-color: gray;
+  width: 50%;
+  text-align: center;
+  font-size: x-large;
+}
+.dashboard table {
+  margin: 0 auto;
 }
