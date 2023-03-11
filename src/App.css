@@ -294,6 +294,7 @@ table {
   text-align: center;
   border-left: solid 1px maroon;
   border-right: solid 1px maroon;
+    font-size: .8em;
 
 }
 .SpellPropertiesBottom th,
@@ -314,6 +315,7 @@ table {
   justify-content:flex-start;
   padding: 5px 6px;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .card-background {
@@ -324,7 +326,7 @@ table {
 
 .spell-properties {
   background-image: url(https://image.ibb.co/dFcNx7/tile_bg_2.jpg);
-      height: 15%;
+      height: 20%;
       /* make it fit in the card */
       margin: 0 10px;
       /* align it vertically */
@@ -361,5 +363,16 @@ p {
 .ritual, .concentration {
   display: inline;
   color: white;
-  background: red;
+  background: rgb(161, 44, 44);
+}
+
+.border {
+  border: 1px solid maroon;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }

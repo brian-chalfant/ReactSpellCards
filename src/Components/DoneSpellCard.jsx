@@ -1,15 +1,13 @@
 import React from 'react';
  
- class DoneSpellCard extends React.Component {
-  
-  render() {  
-    console.log(this.props);
-    return(
+ const DoneSpellCard = (props) => {
+  console.log(props.spell.name);
+  return(  
     <div className="card-container">
       <div className="card-background">
         <div className="card-frame">
           <div className="frame-type-line">
-              <h1 className="name">{this.props.name}</h1>
+              <h1 className="name" key="{props.spell.name}">{props.spell.name.toUpperCase()}</h1>
           </div>
           <div className="spell-properties">
             <table className="SpellPropertiesTop">
@@ -21,8 +19,8 @@ import React from 'react';
               </thead>
               <tbody>
                 <tr>
-                    <td> <span>{this.props.casting_time} <span>{this.props.ritual ? <p className="ritual">R</p> : ""} </span></span></td>
-                  <td>{this.props.range}</td>
+                    <td> <span>{props.spell.casting_time} <span>{props.spell.ritual ? <p className="ritual">R</p> : ""} </span></span></td>
+                  <td>{props.spell.range}</td>
                 </tr>
               </tbody>
             </table>
@@ -35,21 +33,21 @@ import React from 'react';
               </thead>
               <tbody>
                 <tr>
-                  <td>{this.props.comps}</td>
-                  <td>{this.props.duration} <span>{this.props.concentration ? <p className="concentration">C</p> : ""} </span></td>
+                  <td>{props.spell.components}</td>
+                  <td>{props.spell.duration} <span>{props.spell.concentration ? <p className="concentration">C</p> : ""} </span></td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="description">
-            <p> {this.props.desc}</p><br />
-            <p> {this.props.higherLevel}</p>
+            <p> {props.spell.desc}</p><br />
+            <p className="border"></p>
+            <p> {props.spell.higher_level}</p>
           </div>
           <div className="frame-header">
-            <h1 className="type">LEVEL {this.props.level} {this.props.school}</h1>
+            <h1 className="type">{props.spell.level.toUpperCase()} {props.spell.school.toUpperCase()}</h1>
           </div>
         </div></div></div>)
   };
-};
 
 export default DoneSpellCard;
